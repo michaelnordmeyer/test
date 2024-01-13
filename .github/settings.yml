@@ -1,0 +1,10 @@
+repository:
+  has_wiki: false
+  has_issues: true
+  has_discussions: false
+  has_projects: false
+  has_downloads: false
+
+labels:
+  - name: more information needed
+    color: D4C5F9

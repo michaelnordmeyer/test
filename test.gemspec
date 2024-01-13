@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+Gem::Specification.new do |spec|
+  spec.name          = "test"
+  spec.version       = "1.0.0"
+  spec.authors       = ["Michael Nordmeyer"]
+  spec.email         = ["michaelnordmeyer@users.noreply.github.com"]
+
+  spec.summary       = "A simple and minimal single-author theme with configurable big emoji as the header link, and configurable background colors, which can be chosen for each post or page"
+  spec.homepage      = "https://github.com/michaelnordmeyer/test"
+  spec.license       = "MIT"
+
+  spec.metadata["plugin_type"] = "theme"
+
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|(CODE_OF_CONDUCT|LICENSE|README)((\.(txt|md|markdown)|$))|_config\.yml)!i) }
+
+  spec.add_runtime_dependency "jekyll", ">= 3.9.3", "< 5.0"
+  spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2"
+
+  spec.add_development_dependency "bundler", "~> 2.4"
+  spec.add_development_dependency "rake", "~> 13.0"
+end

@@ -1,0 +1,59 @@
+# Remove URL for GitHub Pages plugin
+url: https://test.michaelnordmeyer.com
+# baseurl: "" # The subpath of the site, e.g. /blog
+title: Test
+# Description is used for meta headers and feeds. Limit to 160 characters if possible
+description: >-
+  A test
+
+## Jekyll build settings
+exclude: [CODE_OF_CONDUCT.md, test*, LICENSE, Rakefile.rb, README.md, TODO.md]
+ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
+kramdown:
+  show_warnings: true
+  syntax_highlighter_opts:
+    disable: true
+liquid:
+  # Configure Liquid’s parser
+  error_mode: strict # default: warn
+  # Configure Liquid’s renderer
+  strict_filters: true # default: false
+  # strict_variables: true # default: false
+sass:
+  style: compressed
+strict_front_matter: true # default: false
+# remote_theme: michaelnordmeyer/test
+# theme: test
+# timezone: Europe/Berlin # default: local timezone
+
+## https://jekyllrb.com/docs/configuration/front-matter-defaults/
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project (allows globs, but is slow)
+      type: posts # type (optional): posts, pages, drafts, or any collection
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: "category"
+      type: pages
+    values:
+      layout: category
+      permalink: /:path/:basename
+      sitemap: false
+  - scope:
+      path: "error"
+      type: pages
+    values:
+      layout: error
+      permalink: /:path/:basename
+      sitemap: false
+      icon: 😩
+  - scope:
+      path: ""
+    values:
+      layout: default
