@@ -11,7 +11,7 @@ on:
 jobs:
   gem_build:
     if: "!contains(github.event.commits[0].message, '[ci skip]')"
-    name: "Test Gem build (Ruby ${{ matrix.ruby_version }})"
+    name: "Gem build (Ruby ${{ matrix.ruby_version }})"
     runs-on: 'ubuntu-latest'
     strategy:
       fail-fast: false
@@ -20,13 +20,13 @@ jobs:
         - 2.7
         - 3.3
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout
         with:
-          fetch-depth: 5
+          fetch-depth: 1
       - name: "Set up Ruby ${{ matrix.ruby_version }}"
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby
         with:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: true
-      - name: Test Gem build
+      - name: Build gem
         run:  bundle exec gem build test.gemspec
